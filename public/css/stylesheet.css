@@ -1,0 +1,9 @@
+body { font-family: sans-serif; }
+
+#container { 
+	width: 360px;
+	padding: 20px;
+	margin: 0 auto; 
+	border: 1px solid #aaa;
+	background: #ccc;
+}

@@ -1,0 +1,145 @@
+/* line 7, ../sass/screen.scss */
+html {
+  background-image: url(../images/retina_wood.png);
+}
+
+/* line 11, ../sass/screen.scss */
+body {
+  font-family: helvetica, sans-serif;
+  width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* line 20, ../sass/screen.scss */
+#app {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  background: #eeeeef;
+  margin: 100px 0;
+  -webkit-box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.27);
+  -moz-box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.27);
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.27);
+}
+
+/* line 28, ../sass/screen.scss */
+#header {
+  border-bottom: 1px dotted #ccc;
+  background: rgba(0, 0, 0, 0.02);
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -ms-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  -webkit-box-shadow: 0 9px 15px rgba(0, 0, 0, 0.07) inset;
+  -moz-box-shadow: 0 9px 15px rgba(0, 0, 0, 0.07) inset;
+  box-shadow: 0 9px 15px rgba(0, 0, 0, 0.07) inset;
+}
+/* line 33, ../sass/screen.scss */
+#header input {
+  width: 100%;
+  margin: 0;
+  font-size: 1.3em;
+  padding: 3%;
+  border: none;
+  outline: none;
+  background: transparent;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 44, ../sass/screen.scss */
+#header h1 {
+  margin: 0;
+  position: absolute;
+  top: -80px;
+  font-size: 4.4em;
+  width: 100%;
+  font-weight: bold;
+  font-spacing: 0.02em;
+  text-align: center;
+  color: #414c5c;
+  text-shadow: 0px 1px 0 #64748d, 0px 2px 0 #64748d, 0px 3px 0 #64748d, 0px 4px 0 #5d6c84, 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* line 63, ../sass/screen.scss */
+#todo-list {
+  margin: 0;
+  padding: 0;
+}
+/* line 67, ../sass/screen.scss */
+#todo-list li {
+  list-style: none;
+  border-bottom: 1px solid #AAB6BF;
+  color: #5d6c84;
+  position: relative;
+}
+/* line 73, ../sass/screen.scss */
+#todo-list li .toggle {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 8px 0 8px 5px;
+  background: #C1CED8;
+  height: 30px;
+  width: 30px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.3) inset, 0 1px 0 rgba(255, 255, 255, 0.6);
+  -moz-box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.3) inset, 0 1px 0 rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.3) inset, 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+/* line 87, ../sass/screen.scss */
+#todo-list li .toggle:checked {
+  background: #dddddd;
+}
+/* line 90, ../sass/screen.scss */
+#todo-list li .toggle:checked:after {
+  content: '✔';
+  margin-left: 3px;
+  line-height: 19px;
+  /* 40 + a couple of pixels visual adjustment */
+  font-size: 38px;
+  color: #cccccc;
+  text-shadow: 0 -1px 0px #eeeeee, 0 1px 0px #bbbbbb, 0 2px 0px #b0b0b0;
+}
+/* line 103, ../sass/screen.scss */
+#todo-list li .toggle:not(:checked):hover:after {
+  content: '✔';
+  margin-left: 3px;
+  line-height: 19px;
+  /* 40 + a couple of pixels visual adjustment */
+  font-size: 38px;
+  color: #7CAB53;
+  text-shadow: 0 -1px 0px #b2d197, 0 1px 0px #638945, 0 2px 0px #638945;
+}
+/* line 117, ../sass/screen.scss */
+#todo-list li label {
+  padding: 1em;
+  margin-left: 40px;
+  display: block;
+}
+/* line 123, ../sass/screen.scss */
+#todo-list li button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+}
+/* line 129, ../sass/screen.scss */
+#todo-list li:hover button {
+  display: inline;
+}
+/* line 133, ../sass/screen.scss */
+#todo-list li:last-child {
+  border-bottom-width: 0;
+}
