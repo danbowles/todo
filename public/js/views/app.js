@@ -22,16 +22,21 @@ define([
 
 		initialize: function() {
 			this.input = this.$('#new-todo');
-			this.$footer = this.$("#footer").hide();
+			this.$footer = this.$("#footer");
 			this.$clearBtn = this.$("#clear-completed");
 			// Initialize Collection Events
 			Todos.on("add", this.addAll, this);
 			Todos.on("all", this.render, this);
+			Todos.on("reset", this.addAll, this );
+			Todos.on("change:completed", this.addAll, this );
+
+			Todos.fetch();
 		},
 
 		render: function() {
 			var completed = Todos.completed().length,
 				remaining = Todos.remaining().length;
+
 			if (Todos.length) {
 				this.$footer.show();
 

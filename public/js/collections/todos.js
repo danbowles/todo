@@ -3,12 +3,13 @@
 define([
   'underscore',
   'backbone',
+  'libs/backbone/localstorage',
   'models/todo'
-], function(_, Backbone, todoModel) {
+], function(_, Backbone, LocalStorage, todoModel) {
 	var TodoCollection = Backbone.Collection.extend({
 		model: todoModel,
 
-		url: '/todos',
+		localStorage: new LocalStorage('dpb-todos'),
 
 		completed: function() {
 			return this.filter(function(todo) {

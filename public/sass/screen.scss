@@ -26,6 +26,12 @@ body {
 	}
 }
 
+button {
+	border: 0;
+	background: none;
+	@include appearance(none);
+}
+
 #app {
 	@include border-radius(6px);
 	border: 1px solid #eee;
@@ -126,13 +132,38 @@ body {
 			@include transition(color, 0.4s);
 		}
 
-		button {
+		.destroy {
 			position: absolute;
-			right: 0; top: 0;
+			right: 5px; top: 10px;
 			display: none;
+			width: 30px;
+			height: 30px;
+			font-size: 20px;
+			color: #eeeeee;
+			background: #C55958;
+			line-height: 1em;
+			@include border-radius(20px);
+			@include box-shadow(
+				0px 2px 5px rgba(0, 0, 0, 0.6) inset, 
+				0 1px 0px
+			);
+			@include transition(all 0.3s);
+
+			&:hover {
+				font-size: 26px;
+				line-height: .6em;
+				@include box-shadow(
+					0px 2px 5px rgba(255,255,255, 0.4) inset, 
+					0 0px 5px rgba(0,0,0,0.6)
+				);
+			}
+
+			&:after {
+				content: '✘';
+			}
 		}
 
-		&:hover button {
+		&:hover .destroy {
 			display: inline;
 		}
 
