@@ -10,8 +10,17 @@ body {
   margin: 0 auto;
   position: relative;
 }
+/* line 19, ../sass/screen.scss */
+body ul {
+  margin: 0;
+  padding: 0;
+}
+/* line 23, ../sass/screen.scss */
+body ul li {
+  list-style: none;
+}
 
-/* line 20, ../sass/screen.scss */
+/* line 29, ../sass/screen.scss */
 #app {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -20,13 +29,13 @@ body {
   border-radius: 6px;
   border: 1px solid #eee;
   background: #eeeeef;
-  margin: 100px 0;
+  margin: 100px 0 40px 0;
   -webkit-box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.27);
   -moz-box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.27);
   box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.27);
 }
 
-/* line 28, ../sass/screen.scss */
+/* line 37, ../sass/screen.scss */
 #header {
   border-bottom: 1px dotted #ccc;
   background: rgba(0, 0, 0, 0.02);
@@ -39,7 +48,7 @@ body {
   -moz-box-shadow: 0 9px 15px rgba(0, 0, 0, 0.07) inset;
   box-shadow: 0 9px 15px rgba(0, 0, 0, 0.07) inset;
 }
-/* line 33, ../sass/screen.scss */
+/* line 42, ../sass/screen.scss */
 #header input {
   width: 100%;
   margin: 0;
@@ -53,7 +62,7 @@ body {
   box-sizing: border-box;
 }
 
-/* line 44, ../sass/screen.scss */
+/* line 53, ../sass/screen.scss */
 #header h1 {
   margin: 0;
   position: absolute;
@@ -67,19 +76,13 @@ body {
   text-shadow: 0px 1px 0 #64748d, 0px 2px 0 #64748d, 0px 3px 0 #64748d, 0px 4px 0 #5d6c84, 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* line 63, ../sass/screen.scss */
-#todo-list {
-  margin: 0;
-  padding: 0;
-}
-/* line 67, ../sass/screen.scss */
+/* line 73, ../sass/screen.scss */
 #todo-list li {
-  list-style: none;
   border-bottom: 1px solid #AAB6BF;
   color: #5d6c84;
   position: relative;
 }
-/* line 73, ../sass/screen.scss */
+/* line 78, ../sass/screen.scss */
 #todo-list li .toggle {
   position: absolute;
   -webkit-appearance: none;
@@ -98,11 +101,11 @@ body {
   -moz-box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.3) inset, 0 1px 0 rgba(255, 255, 255, 0.6);
   box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.3) inset, 0 1px 0 rgba(255, 255, 255, 0.6);
 }
-/* line 87, ../sass/screen.scss */
+/* line 92, ../sass/screen.scss */
 #todo-list li .toggle:checked {
   background: #dddddd;
 }
-/* line 90, ../sass/screen.scss */
+/* line 95, ../sass/screen.scss */
 #todo-list li .toggle:checked:after {
   content: '✔';
   margin-left: 3px;
@@ -112,7 +115,7 @@ body {
   color: #cccccc;
   text-shadow: 0 -1px 0px #eeeeee, 0 1px 0px #bbbbbb, 0 2px 0px #b0b0b0;
 }
-/* line 103, ../sass/screen.scss */
+/* line 108, ../sass/screen.scss */
 #todo-list li .toggle:not(:checked):hover:after {
   content: '✔';
   margin-left: 3px;
@@ -122,24 +125,106 @@ body {
   color: #7CAB53;
   text-shadow: 0 -1px 0px #b2d197, 0 1px 0px #638945, 0 2px 0px #638945;
 }
-/* line 117, ../sass/screen.scss */
+/* line 122, ../sass/screen.scss */
 #todo-list li label {
   padding: 1em;
   margin-left: 40px;
   display: block;
+  -webkit-transition: color, 0.4s;
+  -moz-transition: color, 0.4s;
+  -o-transition: color, 0.4s;
+  transition: color, 0.4s;
 }
-/* line 123, ../sass/screen.scss */
+/* line 129, ../sass/screen.scss */
 #todo-list li button {
   position: absolute;
   right: 0;
   top: 0;
   display: none;
 }
-/* line 129, ../sass/screen.scss */
+/* line 135, ../sass/screen.scss */
 #todo-list li:hover button {
   display: inline;
 }
-/* line 133, ../sass/screen.scss */
+/* line 139, ../sass/screen.scss */
 #todo-list li:last-child {
   border-bottom-width: 0;
+}
+/* line 143, ../sass/screen.scss */
+#todo-list li.completed label {
+  color: #bbbbbb;
+  text-decoration: line-through;
+}
+
+/* line 150, ../sass/screen.scss */
+#footer {
+  position: absolute;
+  font-size: 0.9em;
+  margin-top: 20px;
+  background: rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35), 0 0 2px rgba(0, 0, 0, 0.29), 0 -1px 0 rgba(255, 255, 255, 0.4);
+  -moz-box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35), 0 0 2px rgba(0, 0, 0, 0.29), 0 -1px 0 rgba(255, 255, 255, 0.4);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35), 0 0 2px rgba(0, 0, 0, 0.29), 0 -1px 0 rgba(255, 255, 255, 0.4);
+  padding: 3px 15px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #333333;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+/* line 168, ../sass/screen.scss */
+#footer #todo-count {
+  float: left;
+  text-align: left;
+}
+/* line 173, ../sass/screen.scss */
+#footer ul {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+/* line 179, ../sass/screen.scss */
+#footer li {
+  display: inline;
+  padding: 0 3px;
+}
+/* line 184, ../sass/screen.scss */
+#footer a {
+  text-decoration: none;
+  color: #444;
+}
+/* line 188, ../sass/screen.scss */
+#footer a.selected {
+  font-weight: bold;
+}
+/* line 192, ../sass/screen.scss */
+#footer a:hover {
+  text-decoration: underline;
+}
+/* line 197, ../sass/screen.scss */
+#footer button {
+  float: right;
+  border: none;
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  color: #ffffff;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.9) inset;
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.9) inset;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.9) inset;
+}
+/* line 208, ../sass/screen.scss */
+#footer button:hover {
+  background: rgba(0, 0, 0, 0.09);
 }

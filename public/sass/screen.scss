@@ -15,13 +15,22 @@ body {
 	width: 500px; 
 	margin: 0 auto;
 	position: relative;
+
+	ul {
+		margin: 0;
+		padding: 0;
+
+		li {
+			list-style: none;
+		}
+	}
 }
 
 #app {
 	@include border-radius(6px);
 	border: 1px solid #eee;
 	background: #eeeeef;
-	margin: 100px 0;
+	margin: 100px 0 40px 0;
 	@include box-shadow(0px 10px 50px rgba(0, 0, 0, 0.27));
 }
 
@@ -61,11 +70,7 @@ body {
 }
 
 #todo-list {
-	margin: 0;
-	padding: 0;
-
 	li {
-		list-style: none;
 		border-bottom: 1px solid #AAB6BF;
 		color: #5d6c84;
 		position: relative;
@@ -118,6 +123,7 @@ body {
 			padding: 1em;
 			margin-left: 40px;
 			display: block;
+			@include transition(color, 0.4s);
 		}
 
 		button {
@@ -133,6 +139,74 @@ body {
 		&:last-child {
 			border-bottom-width: 0;
 		}
+
+		&.completed label {
+			color: #bbbbbb;
+			text-decoration: line-through;
+		}
+	}
+}
+
+#footer {
+	position: absolute;
+	font-size: 0.9em;
+	margin-top: 20px;
+	background: rgba(0,0,0,.25);
+	@include border-radius(4px);
+	@include box-shadow(
+		0 3px 0 rgba(0,0,0,0.35),
+		0 0 2px rgba(0,0,0,0.29),
+		0 -1px 0 rgba(255,255,255,0.4)
+	);
+	padding: 3px 15px;
+	left: 0;
+	right: 0;
+	@include center;
+	color: #333333;
+	@include text-shadow(0 1px 0 rgba(255,255,255, 0.3));
+
+	#todo-count {
+		float: left;
+		text-align: left;
 	}
 
+	ul {
+		position: absolute;
+		left: 0;
+		right: 0;
+	}
+
+	li {
+		display: inline;
+		padding: 0 3px;
+	}
+
+	a {
+		text-decoration: none;
+		color: #444;
+
+		&.selected {
+			font-weight: bold;
+		}
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	button {
+		float: right;
+		border: none;
+		margin: 0;
+		position: relative;
+		cursor: pointer;
+		background: rgba(0, 0, 0, 0.2);
+		@include border-radius(2px);
+		color: #ffffff;
+		@include box-shadow(0 0 3px rgba(0, 0, 0, 0.9) inset);
+
+		&:hover {
+			background: rgba(0, 0, 0, 0.09);
+		}
+	}
 }

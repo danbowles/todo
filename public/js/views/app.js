@@ -16,18 +16,32 @@ define([
 		template: _.template(statsTemplate),
 
 		events: {
-			'keypress #new-todo': 'onEnterKey'
+			'keypress #new-todo': 'onEnterKey',
+			'click #clear-completed': 'clearCompleted'
 		},
 
 		initialize: function() {
 			this.input = this.$('#new-todo');
-
+			this.$footer = this.$("#footer").hide();
+			this.$clearBtn = this.$("#clear-completed");
 			// Initialize Collection Events
 			Todos.on("add", this.addAll, this);
+			Todos.on("all", this.render, this);
 		},
 
 		render: function() {
-			console.log("rendered");
+			var completed = Todos.completed().length,
+				remaining = Todos.remaining().length;
+			if (Todos.length) {
+				this.$footer.show();
+
+				this.$footer.html(this.template({
+					completed: completed,
+					remaining: remaining
+				}));
+			} else {
+				this.$footer.hide();
+			}
 		},
 
 		addOne: function(todo) {
@@ -53,6 +67,13 @@ define([
 			});
 
 			this.input.val('');
+		},
+
+		clearCompleted: function() {
+			_.each(Todos.completed(), function(todo) {
+				todo.destroy();
+			});
+			return false;
 		}
 	});
   
