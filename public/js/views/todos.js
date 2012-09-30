@@ -4,8 +4,9 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'text!templates/todos.html'
-], function($, _, Backbone, todosTemplate){
+  'text!templates/todos.html',
+  'common'
+], function($, _, Backbone, todosTemplate, Common){
 	var TodoView = Backbone.View.extend({
 		tagName: 'li',
 
@@ -13,7 +14,10 @@ define([
 
 		events: {
 			"click .toggle": "toggleCompleted",
-			"click .destroy": "clear"
+			"click .destroy": "clear",
+			"dblclick label": "edit",
+			"blur .edit": "close",
+			"keypress .edit": "updateOnEnter"
 		},
 
 		initialize: function() {
@@ -26,6 +30,8 @@ define([
 			this.$el.html(this.template(this.model.toJSON()));
 			this.$el.toggleClass('completed', this.model.get('completed'));
 
+			this.input = this.$el.find('.edit');
+
 			return this;
 		},
 
@@ -35,6 +41,29 @@ define([
 
 		clear: function() {
 			this.model.destroy();
+		},
+
+		edit: function() {
+			this.$el.addClass('editing');
+			this.input.focus();
+		},
+
+		close: function() {
+			var value = this.input.val().trim();
+
+			if (value) {
+				this.model.save({title: value});
+			} else {
+				this.clear();
+			}
+
+			this.$el.removeClass('editing');
+		},
+
+		updateOnEnter: function(ev) {
+			if (ev.keyCode === Common.ENTER_KEY) {
+				this.close();
+			}
 		}
 
 	});

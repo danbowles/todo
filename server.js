@@ -19,7 +19,7 @@ http.createServer(function(req, res) {
 
 	if (extensions[ext]) {
 		localPath += (dir ? dir + '/' : "") + filename;
-		path.exists(localPath, function(exists) {
+		fs.exists(localPath, function(exists) {
 			if (exists) {
 				getFile(localPath, extensions[ext], res);
 			} else {

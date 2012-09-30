@@ -132,6 +132,28 @@ button {
 			@include transition(color, 0.4s);
 		}
 
+		.edit {
+			display: none;
+			@include box-sizing(border-box);
+			width: 91%;
+			margin-left: 9%;
+			border: none;
+			padding: 1em;
+			font-size: 1em;
+			background: transparent;
+			font-style: italic;
+			color: #5D6C84;
+		}
+
+		&.editing {
+			.view {
+				display: none;
+			}
+			.edit {
+				display: block;
+			}
+		}
+
 		.destroy {
 			position: absolute;
 			right: 5px; top: 10px;
