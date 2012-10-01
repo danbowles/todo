@@ -29,6 +29,7 @@ define([
 			Todos.on("all", this.render, this);
 			Todos.on("reset", this.addAll, this );
 			Todos.on("change:completed", this.addAll, this );
+			Todos.on("filter", this.filterAll, this);
 
 			Todos.fetch();
 		},
@@ -79,7 +80,16 @@ define([
 				todo.destroy();
 			});
 			return false;
+		},
+
+		filterAll: function() {
+			Todos.each(this.filterOne, this);
+		},
+
+		filterOne: function(todo) {
+			todo.trigger('visible');
 		}
+
 	});
   
   return AppView;

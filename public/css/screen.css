@@ -290,3 +290,8 @@ button {
 #footer button:hover {
   background: rgba(0, 0, 0, 0.09);
 }
+
+/* line 267, ../sass/screen.scss */
+.hidden {
+  display: none;
+}

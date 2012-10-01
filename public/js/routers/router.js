@@ -2,15 +2,21 @@
 
 define([
   'jquery',
-  'backbone'
-], function($, Backbone, todoViewList){
+  'backbone',
+  'collections/todos',
+  'common'
+], function($, Backbone, Todos, Common){
   
 	var AppRouter = Backbone.Router.extend({
 		routes: {
-			"test": "yea"
+			"*filter": "setFilter"
 		},
 
-		yea: function() {}
+		setFilter: function(filter) {
+			Common.TodoFilter = filter.trim() || '';
+
+			Todos.trigger('filter');
+		}
 	});
   
 	return AppRouter;

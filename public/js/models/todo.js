@@ -8,7 +8,7 @@ define([
 	var TodoModel = Backbone.Model.extend({
 		defaults: {
 			title: '',
-			complete: false
+			completed: false
 		},
 
 		toggleComplete: function() {

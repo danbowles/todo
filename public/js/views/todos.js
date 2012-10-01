@@ -23,6 +23,7 @@ define([
 		initialize: function() {
 			this.model.on('change', this.render, this);
 			this.model.on('destroy', this.remove, this);
+			this.model.on( 'visible', this.toggleVisible, this );
 		},
 
 		render: function() {
@@ -33,6 +34,19 @@ define([
 			this.input = this.$el.find('.edit');
 
 			return this;
+		},
+
+		toggleVisible: function() {
+			this.$el.toggleClass('hidden', this.isHidden());
+		},
+
+		isHidden: function() {
+			var complete = this.model.get('completed');
+
+			return (
+				(!complete && Common.TodoFilter === 'completed')
+				|| (complete && Common.TodoFilter === 'active')
+			);
 		},
 
 		toggleCompleted: function() {
